@@ -72,9 +72,9 @@ jobs:
          sudo apt update
          sudo apt install docker-ce -y
          sudo systemctl status docker
-         sudo docker pull vamotest/flask-app
+         sudo docker pull ${{ secrets.DOCKER_USERNAME }}/flask-app
          sudo docker stop $(sudo docker ps -a -q)
-         sudo docker run --rm -d -p 5000:5000 vamotest/flask-app
+         sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/flask-app
 
   send_message:
     runs-on: ubuntu-latest
