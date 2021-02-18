@@ -59,9 +59,9 @@ jobs:
        key: ${{ secrets.SSH_KEY }}
        passphrase: ${{ secrets.PASSPHRASE }} # если ваш ssh-ключ защищен паролем
        script: |
-         sudo docker pull ${{ secrets.USER }}/flask-app
+         sudo docker pull ${{ secrets.DOCKER_USERNAME }}/flask-app
          sudo docker stop $(sudo docker ps -a -q)
-         sudo docker run --rm -d -p 5000:5000 ${{ secrets.USER }}/flask-app
+         sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/flask-app
 
   send_message:
     runs-on: ubuntu-latest
